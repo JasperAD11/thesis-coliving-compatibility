@@ -1,0 +1,75 @@
+# ============================================
+#  macOS system files
+# ============================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# ============================================
+#  LaTeX build files
+# ============================================
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.fmt
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.pdf        # optional: removes compiled PDFs from Git
+
+# ============================================
+#  Python
+# ============================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.ipynb_checkpoints
+.env
+.venv/
+venv/
+
+# ============================================
+#  R
+# ============================================
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# ============================================
+#  Jupyter
+# ============================================
+.ipynb_checkpoints/
+
+# ============================================
+#  Data (protect privacy)
+# ============================================
+data/raw/
+data/private/
+*.sav
+*.dta
+*.xlsx
+*.csv       # <— optional, can be removed if you want to push processed CSVs
+
+# ============================================
+#  Logs / temporary
+# ============================================
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
