@@ -1,4 +1,4 @@
-# Roommate Group Compatibility Analysis
+# Flatmate Group Compatibility Analysis
 
 This repository contains the code, documentation, and structure for a Master’s thesis on predicting **flatmate group compatibility** in co-living environments.  
 The project explores whether group-level compatibility can be modelled using survey-based measures of perceived fit, lifestyle preferences, interpersonal expectations, and demographic characteristics.
