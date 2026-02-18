@@ -1,147 +1,131 @@
-# Flatmate Group Compatibility Analysis
+Structural Compatibility Modeling for Apartment-Level Tenant Allocation in Co-Living
 
-This repository contains the code, documentation, and structure for a Master’s thesis on predicting **flatmate group compatibility** in co-living environments.  
-The project explores whether group-level compatibility can be modelled using survey-based measures of perceived fit, lifestyle preferences, interpersonal expectations, and demographic characteristics.
+This repository contains the code, documentation, and modelling framework for a Master’s thesis on structural compatibility modeling in co-living environments.
 
----
+Rather than predicting subjective compatibility directly, the project reframes tenant alignment as a latent-space structural problem, where individual behavioural and psychological representations are aggregated to evaluate apartment-level fit and support allocation decisions.
 
-## 📘 Table of Contents
-- [Project Overview](#project-overview)
-- [Dataset](#dataset)
-- [Features](#features)
-- [Preprocessing](#preprocessing)
-- [Modelling Approach](#modelling-approach)
-- [Evaluation](#evaluation)
-- [Results](#results)
-- [Usage](#usage)
-- [Data Privacy](#data-privacy)
-- [Repository Structure](#repository-structure)
-- [Contact](#contact)
-- [License](#license)
+📘 Project Overview
 
----
+Commercial co-living environments face recurring challenges related to tenant compatibility and shared living harmony.
+Allocation decisions are often made with limited structured insight into interpersonal dynamics.
 
-## ⭐ Project Overview
+This thesis develops a two-stage compatibility framework:
 
-In shared-living settings, tenants frequently report that their satisfaction depends heavily on **how well the flatmate group works together**.  
-Despite this, group formation in co-living environments is often random or based on limited information.
+Stage 1 – Personality Representation Learning
 
-This thesis investigates whether **group-level compatibility** can be:
+Large-scale personality data (IPIP / Big Five)
 
-- **measured** (via survey responses),
-- **understood** (via feature engineering), and
-- **modelled** (via statistical and machine learning approaches)
+Dimensionality reduction (PCA)
 
-using the following data sources:
+Clustering to derive latent tenant representations
 
-- **Survey-based measures of perceived group fit**  
-- **Lifestyle & behavioural preferences**  
-- **Expectations toward flatmate interaction**  
-- **Demographics**
+Stage 2 – Apartment-Level Structural Modeling
 
-The goal is not to match individuals pairwise, but to assess whether data-driven insights could support more intentional **group composition** in the future.
+Integration of lifestyle and behavioural survey data
 
----
+Construction of tenant embeddings
 
-## 🧩 Dataset
+Aggregation to apartment-level mean vectors
 
-The dataset consists of an anonymous survey completed by tenants of a co-living environment.  
-It includes:
+Dispersion metrics within flats
 
-- **Self-reported group compatibility / perceived fit**
-- **Expectations and values related to shared living**
-- **Lifestyle and behavioural preferences** (cleanliness, noise, boundaries, shared activities)
-- **Interpersonal dynamics** (comfort, openness, trust)
-- **Demographics** (age, nationality, etc.)
+Similarity-based compatibility scoring
 
-No identifiable information is stored in this repository.
+Configurable demographic allocation constraints
 
----
+Prototype decision-support interface
 
-## 🧱 Features
+The goal is not to build a black-box predictor, but a transparent, configurable allocation support framework.
 
-### **Survey Variables**
-- Perceived group fit / “compatibility trust score”
-- Lifestyle alignment (e.g., cleanliness routines, noise preferences)
-- Personal boundary expectations
-- Shared activity preferences
-- Attitudes toward communal living
-- Conflict tolerance / communication attitudes
+🧠 Conceptual Framing
 
-### **Demographics**
-- Age  
-- Nationality  
-- Gender identity
+Compatibility is operationalized as:
 
-### **Derived / Engineered Features**
-- Normalised compatibility indicators  
-- Group lifestyle cohesion scores  
-- Expectation alignment metrics  
+Distance in latent embedding space
 
----
+Internal apartment dispersion
 
-## 🔧 Preprocessing
+Structural alignment between tenant vector and apartment centroid
 
-Preprocessing steps include:
+Rule-based demographic constraints (e.g., age bounds, gender balance)
 
-1. **Cleaning and validating survey responses**
-2. **Encoding Likert-scale answers**
-3. **Imputing missing values where appropriate**
-4. **Scaling continuous variables**
-5. **Constructing composite indicators** (e.g., lifestyle cohesion, interpersonal alignment)
-6. **Preparing group-level feature aggregates**
+The framework emphasizes:
 
-All raw data remain local and are not included in this repository.
+Interpretability
 
----
+Structural modeling over prediction
 
-## 🤖 Modelling Approach
+Ethical awareness in demographic controls
 
-Because the survey captures **group-level compatibility**, models focus on predicting **flat-level outcomes**, not pairwise similarity.
+Operational feasibility for co-living operators
 
-Current modelling approaches include:
+📊 Data Sources
+Secondary Data
 
-- **Logistic regression** for categorical group fit outcomes  
-- **Random Forests / Gradient Boosted Trees** for non-linear relationships  
-- **Regularised linear models** (e.g., LASSO)  
-- **Embedding-based or distance-based similarity metrics** for group feature profiles  
-- **Group-level clustering** to identify patterns of harmonious vs. incompatible groups  
+OpenPsychometrics Big Five dataset
 
-The goal is to determine which factors most strongly predict **high perceived group compatibility**.
+Used for large-scale personality structure learning
 
----
+Primary Data
 
-## 📊 Evaluation
+Co-living survey (personality + lifestyle + behavioural attributes)
 
-Models are evaluated using:
+Limited response size
 
-- Accuracy and F1-score for categorical compatibility predictions  
-- RMSE or MAE for continuous compatibility trust scores  
-- Feature importance and SHAP values  
-- Cross-validation across multiple flats  
-- Sensitivity tests using ablated feature sets (e.g., demographics-only vs. lifestyle-only)
+Supplemented via synthetic data generation for structural testing
 
----
+No personally identifiable information is included in this repository.
 
-## 📈 Results
+🗂 Repository Structure
+CoLiving-Thesis/
+│
+├── thesis/        # LaTeX source files for dissertation
+├── notebooks/     # Stage 1 and Stage 2 Jupyter notebooks
+├── src/           # Allocation engine and modeling utilities
+├── data/          # Processed (non-sensitive) data
+├── survey/        # Survey design materials
+├── interviews/    # Stakeholder validation notes (appendix material)
+└── README.md
 
-Results focus on:
+🔬 Methodological Components
+Representation Learning
 
-- The extent to which compatibility can be predicted using survey data  
-- Which behavioural or lifestyle factors are most predictive  
-- Patterns that distinguish high-fit vs. low-fit flats  
-- Implications for co-living operators and tenant experience  
+PCA for dimensionality reduction
 
-(A more detailed results summary will be added after final analysis.)
+K-means clustering for structural grouping
 
----
+Latent embedding construction
 
-## ▶️ Usage
+Structural Compatibility Scoring
 
-To reproduce the analysis locally:
+Cosine / Euclidean similarity
 
-```bash
-git clone https://github.com/JasperAD11/CoLiving-Thesis.git
-cd CoLiving-Thesis
+Apartment centroid computation
 
+Internal dispersion metrics
 
+Ranking of apartment recommendations
+
+Allocation Prototype
+
+Streamlit-based interface
+
+Adjustable scoring weights
+
+Vacancy filters
+
+Demographic rule toggles
+
+⚖ Ethical Considerations
+
+The framework incorporates:
+
+Transparent rule-based demographic constraints
+
+Avoidance of discriminatory nationality rules
+
+Explicit acknowledgment of fairness–diversity trade-offs
+
+Stakeholder interviews to validate synthetic assumptions
+
+The model is designed as decision-support, not automated tenant assignment.
