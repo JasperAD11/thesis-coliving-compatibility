@@ -1,74 +1,71 @@
 # Structural Compatibility Modeling for Apartment-Level Tenant Allocation in Co-Living
 
-This repository contains the code, documentation, and modelling framework for a Master’s thesis on tenant compatibility in co-living environments.
+This repository contains the code, documentation, and research materials for my Master’s thesis on compatibility modeling in co-living environments.
 
-The project develops a structured compatibility framework for apartment-level tenant allocation. Rather than treating compatibility as a purely subjective or ad hoc judgement, the thesis formalises it through a combination of personality-related fit, lifestyle similarity, and apartment-level structural evaluation in order to support more consistent placement decisions.
+The project develops a structured framework for apartment-level tenant allocation. Instead of treating compatibility as a purely subjective judgement, it formalizes it through personality-based fit, lifestyle similarity, and apartment-level evaluation to support more consistent and transparent placement decisions.
 
-## 📘 Project Overview
+## Project Overview
 
-Commercial co-living environments face recurring challenges related to tenant compatibility, shared routines, and household composition. In practice, allocation decisions are often made with limited structured support and depend heavily on manual judgement.
+Commercial co-living environments face recurring challenges around tenant fit, shared routines, and household composition. In practice, allocation decisions are often made with limited structured support and rely heavily on manual judgement.
 
 This thesis develops a two-stage compatibility framework:
 
-### Stage 1 – Personality-Based Compatibility Framework
+### Stage 1 — Personality-Based Compatibility
 
-- Large-scale Big Five personality data
-- Construction of trait-based compatibility scores
-- Comparison of alternative weighting specifications
+- Big Five personality data
+- Trait-based pairwise compatibility scoring
+- Alternative weighting specifications
 - Sensitivity analysis of compatibility assumptions
 - Illustrative group formation and assignment simulation
 
-### Stage 2 – Extended Apartment-Level Compatibility Framework
+### Stage 2 — Apartment-Level Compatibility
 
 - Integration of personality, lifestyle, and household preference variables
-- Use of operational apartment and tenant data
-- Applicant-conditioned compatibility modelling
-- Apartment-level evaluation based on fairness, harmony, and weakest-pair fit
+- Use of operational co-living tenant and apartment data
+- Applicant-conditioned compatibility modeling
+- Apartment-level evaluation using fairness, harmony, and weakest-link fit
 - Contextual apartment flags for interpretation
 - Prototype recommendation interface for vacancy ranking
 
-The goal is not to automate tenant assignment, but to provide a transparent and configurable decision-support framework for co-living operators.
+The objective is not to automate tenant assignment, but to provide an interpretable and configurable decision-support framework for co-living operators and applicants.
 
-## 🧠 Conceptual Framing
+## Conceptual Framing
 
-Compatibility is operationalised as a multidimensional and apartment-level concept. The framework combines:
+Compatibility is modeled as a multidimensional and apartment-level concept. The framework combines:
 
 - personality-based interpersonal fit
 - lifestyle and household preference similarity
-- applicant-specific weighting of compatibility layers
+- applicant-specific weighting of compatibility dimensions
 - apartment-level structural evaluation
 - contextual information relevant to shared living decisions
 
 The framework emphasizes:
 
 - interpretability
-- transparency of scoring logic
-- operational relevance for co-living allocation
+- transparent scoring logic
+- operational relevance
 - decision support rather than automated decision-making
 
-## 📊 Data Sources
+## Data Sources
 
 ### Secondary Data
-
-- OpenPsychometrics Big Five dataset
-- Used to develop the Stage 1 personality-based compatibility structure
+- OpenPsychometrics Big Five dataset  
+Used to develop the Stage 1 personality-based compatibility structure.
 
 ### Applied Co-Living Data
-
-- Operational tenant and apartment data from a co-living context
-- Survey-based lifestyle and household preference variables
-- Simulated compatibility-related inputs for structural testing and demonstration
+- operational tenant and apartment data from a co-living context
+- survey-based lifestyle and household preference variables
+- synthetic inputs used for structural testing and demonstration
 
 No personally identifiable information is included in this repository.
 
-## 🗂 Repository Structure
+## Repository Structure
 
 ```text
-CoLiving-Thesis/
-│
-├── thesis/        # LaTeX source files for the dissertation
-├── notebooks/     # Stage 1 and Stage 2 Jupyter notebooks
-├── src/           # Compatibility engine and recommendation utilities
-├── data/          # Processed (non-sensitive) data
-├── survey/        # Survey design materials
+thesis-coliving-compatibility/
+├── thesis/      # Thesis PDF, references, and figures
+├── notebooks/   # Stage 1 and Stage 2 notebooks
+├── src/         # Compatibility engine and application components
+├── data/        # Processed non-sensitive and synthetic data
+├── survey/      # Survey materials
 └── README.md
