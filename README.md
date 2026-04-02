@@ -1,131 +1,74 @@
-Structural Compatibility Modeling for Apartment-Level Tenant Allocation in Co-Living
+# Structural Compatibility Modeling for Apartment-Level Tenant Allocation in Co-Living
 
-This repository contains the code, documentation, and modelling framework for a Master’s thesis on structural compatibility modeling in co-living environments.
+This repository contains the code, documentation, and modelling framework for a Master’s thesis on tenant compatibility in co-living environments.
 
-Rather than predicting subjective compatibility directly, the project reframes tenant alignment as a latent-space structural problem, where individual behavioural and psychological representations are aggregated to evaluate apartment-level fit and support allocation decisions.
+The project develops a structured compatibility framework for apartment-level tenant allocation. Rather than treating compatibility as a purely subjective or ad hoc judgement, the thesis formalises it through a combination of personality-related fit, lifestyle similarity, and apartment-level structural evaluation in order to support more consistent placement decisions.
 
-📘 Project Overview
+## 📘 Project Overview
 
-Commercial co-living environments face recurring challenges related to tenant compatibility and shared living harmony.
-Allocation decisions are often made with limited structured insight into interpersonal dynamics.
+Commercial co-living environments face recurring challenges related to tenant compatibility, shared routines, and household composition. In practice, allocation decisions are often made with limited structured support and depend heavily on manual judgement.
 
 This thesis develops a two-stage compatibility framework:
 
-Stage 1 – Personality Representation Learning
+### Stage 1 – Personality-Based Compatibility Framework
 
-Large-scale personality data (IPIP / Big Five)
+- Large-scale Big Five personality data
+- Construction of trait-based compatibility scores
+- Comparison of alternative weighting specifications
+- Sensitivity analysis of compatibility assumptions
+- Illustrative group formation and assignment simulation
 
-Dimensionality reduction (PCA)
+### Stage 2 – Extended Apartment-Level Compatibility Framework
 
-Clustering to derive latent tenant representations
+- Integration of personality, lifestyle, and household preference variables
+- Use of operational apartment and tenant data
+- Applicant-conditioned compatibility modelling
+- Apartment-level evaluation based on fairness, harmony, and weakest-pair fit
+- Contextual apartment flags for interpretation
+- Prototype recommendation interface for vacancy ranking
 
-Stage 2 – Apartment-Level Structural Modeling
+The goal is not to automate tenant assignment, but to provide a transparent and configurable decision-support framework for co-living operators.
 
-Integration of lifestyle and behavioural survey data
+## 🧠 Conceptual Framing
 
-Construction of tenant embeddings
+Compatibility is operationalised as a multidimensional and apartment-level concept. The framework combines:
 
-Aggregation to apartment-level mean vectors
-
-Dispersion metrics within flats
-
-Similarity-based compatibility scoring
-
-Configurable demographic allocation constraints
-
-Prototype decision-support interface
-
-The goal is not to build a black-box predictor, but a transparent, configurable allocation support framework.
-
-🧠 Conceptual Framing
-
-Compatibility is operationalized as:
-
-Distance in latent embedding space
-
-Internal apartment dispersion
-
-Structural alignment between tenant vector and apartment centroid
-
-Rule-based demographic constraints (e.g., age bounds, gender balance)
+- personality-based interpersonal fit
+- lifestyle and household preference similarity
+- applicant-specific weighting of compatibility layers
+- apartment-level structural evaluation
+- contextual information relevant to shared living decisions
 
 The framework emphasizes:
 
-Interpretability
+- interpretability
+- transparency of scoring logic
+- operational relevance for co-living allocation
+- decision support rather than automated decision-making
 
-Structural modeling over prediction
+## 📊 Data Sources
 
-Ethical awareness in demographic controls
+### Secondary Data
 
-Operational feasibility for co-living operators
+- OpenPsychometrics Big Five dataset
+- Used to develop the Stage 1 personality-based compatibility structure
 
-📊 Data Sources
-Secondary Data
+### Applied Co-Living Data
 
-OpenPsychometrics Big Five dataset
-
-Used for large-scale personality structure learning
-
-Primary Data
-
-Co-living survey (personality + lifestyle + behavioural attributes)
-
-Limited response size
-
-Supplemented via synthetic data generation for structural testing
+- Operational tenant and apartment data from a co-living context
+- Survey-based lifestyle and household preference variables
+- Simulated compatibility-related inputs for structural testing and demonstration
 
 No personally identifiable information is included in this repository.
 
-🗂 Repository Structure
+## 🗂 Repository Structure
+
+```text
 CoLiving-Thesis/
 │
-├── thesis/        # LaTeX source files for dissertation
+├── thesis/        # LaTeX source files for the dissertation
 ├── notebooks/     # Stage 1 and Stage 2 Jupyter notebooks
-├── src/           # Allocation engine and modeling utilities
+├── src/           # Compatibility engine and recommendation utilities
 ├── data/          # Processed (non-sensitive) data
 ├── survey/        # Survey design materials
-├── interviews/    # Stakeholder validation notes (appendix material)
 └── README.md
-
-🔬 Methodological Components
-Representation Learning
-
-PCA for dimensionality reduction
-
-K-means clustering for structural grouping
-
-Latent embedding construction
-
-Structural Compatibility Scoring
-
-Cosine / Euclidean similarity
-
-Apartment centroid computation
-
-Internal dispersion metrics
-
-Ranking of apartment recommendations
-
-Allocation Prototype
-
-Streamlit-based interface
-
-Adjustable scoring weights
-
-Vacancy filters
-
-Demographic rule toggles
-
-⚖ Ethical Considerations
-
-The framework incorporates:
-
-Transparent rule-based demographic constraints
-
-Avoidance of discriminatory nationality rules
-
-Explicit acknowledgment of fairness–diversity trade-offs
-
-Stakeholder interviews to validate synthetic assumptions
-
-The model is designed as decision-support, not automated tenant assignment.
